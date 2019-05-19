@@ -624,7 +624,9 @@ int imax(int a, int b)
     return (a > b) ? a : b;
 }
 
-inline int iabs(int a)
+// Changed --------------
+// inline int iabs(int a)
+int iabs(int a)
 {
     return a >= 0 ? a : -a;
 }

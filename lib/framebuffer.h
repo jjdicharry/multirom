@@ -331,7 +331,9 @@ void fb_png_release(px_type *data);
 void fb_png_drop_unused(void);
 int fb_png_save_img(const char *path, int w, int h, int stride, px_type *data);
 
-inline void center_text(fb_img *text, int targetX, int targetY, int targetW, int targetH);
+// Changed ---------
+// inline void center_text(fb_img *text, int targetX, int targetY, int targetW, int targetH);
+void center_text(fb_img *text, int targetX, int targetY, int targetW, int targetH);
 
 int vt_set_mode(int graphics);
 

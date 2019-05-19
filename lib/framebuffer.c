@@ -1091,7 +1091,10 @@ void *fb_draw_thread_work(UNUSED void *cookie)
         clock_gettime(CLOCK_MONOTONIC, &curr);
         diff = timespec_diff(&last, &curr);
 
-        expected.__val = 1; // might be reseted by atomic_compare_exchange_strong
+	// Changed ---------------------
+//        expected.__val = 1; // might be reseted by atomic_compare_exchange_strong
+        atomic_store(&expected, 1); // might be reseted by atomic_compare_exchange_strong
+	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         pthread_mutex_lock(&fb_draw_mutex);
         if(atomic_compare_exchange_strong(&fb_draw_requested, &expected, 0))
         {
